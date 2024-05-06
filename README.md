@@ -19,16 +19,16 @@ Creating functional lightweight web-app to learn nosql database systems, in my c
 
 ### LOGIN:
 
-![](https://github.com/kutscheraa/FLASK-WEB-APP/blob/main/preview4.png)
+![](https://github.com/kutscheraa/FLASK-WEB-APP/blob/main/preview4.png?raw=true)
 
 ### PRODUCT PAGE:
 
-![](https://github.com/kutscheraa/FLASK-WEB-APP/blob/main/preview2.png)
+![](https://github.com/kutscheraa/FLASK-WEB-APP/blob/main/preview2.png?raw=true)
 
 ### CART:
 
-![](https://github.com/kutscheraa/FLASK-WEB-APP/blob/main/preview3.png)
+![](https://github.com/kutscheraa/FLASK-WEB-APP/blob/main/preview3.png?raw=true)
 
 ### CHECKOUT:
 
-![](https://github.com/kutscheraa/FLASK-WEB-APP/blob/main/preview5.png)
+![](https://github.com/kutscheraa/FLASK-WEB-APP/blob/main/preview5.png?raw=true)
