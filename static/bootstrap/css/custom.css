@@ -1,0 +1,16 @@
+.bs-icon-circle { /* ikona (favicon) */
+    display: inline-block;
+    background-image: url('/static/images/brands/icon.png');
+    background-size: cover;
+  }
+
+
+  .success-message {
+    background-color: #4CAF50; /* okno */
+    color: white; /* text */
+}
+
+.error-message {
+  background-color: red;
+  color: white;
+}
