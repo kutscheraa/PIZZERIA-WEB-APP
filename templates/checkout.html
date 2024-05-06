@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+    {% for category, message in messages %}
+        <div class="alert alert-dismissible fade show {% if category == 'success' %} alert-success {% elif category == 'error' %} alert-danger {% endif %}" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endfor %}
+{% endif %}
+{% endwith %} 
+<div class="container mt-4">
+  <div class="row justify-content-center">
+      <div class="col-lg-6">
+        <form class="rounded mb-4" method="post" action="{{ url_for('checkout') }}">
+            <div class="form-group">
+                <label for="firstname">First name</label>
+                <input type="text" class="form-control" id="firstname" name="firstname" {% if current_user.is_authenticated %}value="{{ current_user.firstname }}" disabled{% endif %} required>
+            </div>
+            <div class="form-group">
+                <label for="lastname">Last name</label>
+                <input type="text" class="form-control" id="lastname" name="lastname" {% if current_user.is_authenticated %}value="{{ current_user.lastname }}" disabled{% endif %} required>
+            </div>
+            <div class="form-group">
+                <label for="address">Address</label>
+                <input type="text" class="form-control" id="address" name="address" {% if current_user.is_authenticated %}value="{{ current_user.address }}" disabled{% endif %} required>
+            </div>
+            <div class="col-xs-3">
+                <label for="phonenumber">Phone number</label>
+                <input type="text" class="form-control" id="phonenumber" name="phonenumber" {% if current_user.is_authenticated %}value="{{ current_user.phonenumber }}" disabled{% endif %} required>
+            </div>
+            {% for item in cart_items %}
+            <div class="form-group">
+                <label for="product{{ loop.index }}">Product {{ loop.index }}</label>
+                <input type="text" class="form-control" id="product{{ loop.index }}" value="{{ item.name }}" disabled>
+            </div>
+            {% endfor %}
+            <div class="form-group row">
+                <div class="col-xs-6">
+                    <label for="total">Total</label>
+                    <input type="text" class="form-control" id="total" value="{{ total_price }} CZK" disabled>
+                </div>
+            </div>
+            <div class="text-center mt-3"> <!-- Added mt-3 for top margin -->
+                <button type="submit" class="btn btn-primary shadow">Proceed</button>
+            </div>
+        </form>        
+      </div>
+  </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+{% endblock %}

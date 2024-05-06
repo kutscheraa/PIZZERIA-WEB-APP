@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+    {% for category, message in messages %}
+        <div class="alert alert-dismissible fade show {% if category == 'success' %} alert-success {% elif category == 'error' %} alert-danger {% endif %}" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endfor %}
+{% endif %}
+{% endwith %} 
+    <section class="container py-5">
+        <div class="row">
+            {% for sub in sub %}
+           <div class="col-12 col-md-3">
+            <div class="card">
+                <img src="{{ sub.image }}" class="card-img-top rounded" alt="{{ sub.name }}">
+                <div class="card-body">
+                   <h5 class="card-title">{{ sub.name }}</h5>
+                   <p class="card-text">{{ sub.price }} CZK</p>
+                   <form action="{{ url_for('add_to_cart') }}" method="post">
+                    <input type="hidden" name="product_type" value="subs">
+                    <input type="hidden" name="product_name" value="{{ sub.name }}">
+                    <input type="hidden" name="product_price" value="{{ sub.price }}">
+                    <button type="submit" class="btn btn-primary">Add to cart</button>
+                </form>
+                </div>
+               </div>
+           </div>
+           {% endfor %}
+        </div>
+       </section>
+{% endblock %}
